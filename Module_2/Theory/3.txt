@@ -1,0 +1,24 @@
+Explain object-oriented programming concepts in Dart, such as classes,inheritance, polymorphism, and interfaces.
+
+
+Class - class is a userdefined data type which is contain data members and member function,using of class keyword we can create a class.
+    class Classname {
+
+    }
+
+
+Inheritance - Inheritance means when one class derived properties of another class is called inheritance.
+1. Single Inheritance
+2. Multilevel Inheritance
+3. Hierarchical Inheritance
+
+
+Polymorphism - poly means many and morphism means many forms.
+1. Method overloading - One class contain same name method with diff arguments. not supported in dart
+2. Method overriding - Parent and child both have same name method is called....
+
+
+
+Interface - There is no any keyword like interface in dart.but u can use implements keyword we can allow multiple parent in one class
+
+

@@ -1,0 +1,12 @@
+Describe asynchronous programming in Dart, including Future, async, await, and Stream.
+
+Async => When an async function is called, a Future is immediately returned and the body of the function           is executed later. As the body of the async function is executed, the Future returned by the function call will be completed along with its result. In the above example, calling demo() results in the Future.
+
+
+Await => Typically, it is an asynchronous computation and is expected to evaluate to a Future. The await expressions evaluate the main function, and then suspends the currently running function until the result is ready–that is, until the Future has completed. The result of the await expression is the completion of the Future.
+
+
+Future => Dart is a single-threaded programming language. Future<T> object represents the result of an asynchronous operation which produces a result of type T. If the result is not usable value, then the future’s type is Future<void>. A Future represents a single value either a data or an error asynchronously.
+
+
+Stream => A Stream is a sequence of asynchronous events. It is like an asynchronous Iterable—where, instead of getting the next event when you ask for it, the stream tells you that there is an event when it is ready. 
