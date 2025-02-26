@@ -1,0 +1,18 @@
+1. Explain how the Navigator widget works in Flutter.
+-----------------------------------------------------
+
+    The Navigator widget in Flutter is a core concept used for managing routing and navigation 
+between different screens (also called routes) in an application.
+It provides a stack-based navigation system where screens or pages are pushed onto the stack and 
+popped off to navigate between them.
+
+
+Push and Pop Operations:
+
+    Push: When a new screen is pushed onto the navigator, it’s placed on top of the current stack, 
+    and the screen becomes visible. For example, calling 
+    Navigator.push(context, MaterialPageRoute(builder: (context) => NewScreen())) 
+    will push a new screen onto the stack.
+    
+    Pop: When you want to go back to the previous screen, you can pop the current screen off the stack. 
+    This is done using Navigator.pop(context).

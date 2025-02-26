@@ -1,0 +1,57 @@
+3. Explain how data can be passed between screens using route arguments.
+---------------------------------------------------------------------
+
+you can pass data via direct navigation using Navigator.push().
+
+import 'package:flutter/material.dart';
+import 'DetailsScreen.dart';
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    String data = "Hello from Home!"; // Data to send to the next screen
+
+    return Scaffold(
+      appBar: AppBar(title: Text("Home Screen")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Passing data directly through the route
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailsScreen(message: data),
+              ),
+            );
+          },
+          child: Text("Go to Details"),
+        ),
+      ),
+    );
+  }
+}
+
+
+In DetailsScreen, you’ll retrieve the data passed as a constructor argument.
+
+import 'package:flutter/material.dart';
+
+class DetailsScreen extends StatelessWidget {
+  final String message;
+
+  // Constructor to accept the data
+  DetailsScreen({required this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Details Screen")),
+      body: Center(
+        child: Text(message),  // Display the passed data
+      ),
+    );
+  }
+}
+
+Passing Data with Direct Navigation: You use Navigator.push() and pass data through the constructor of the screen. 
+This is suitable for ad-hoc navigation where passing data directly is more convenient.

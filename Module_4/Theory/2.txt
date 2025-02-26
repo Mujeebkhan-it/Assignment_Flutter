@@ -1,0 +1,62 @@
+2. Describe the concept of named routes and their advantages over direct route navigation.
+------------------------------------------------------------------------------------------
+
+    named routes refer to a navigation mechanism where each screen (or route) is associated with a unique string 
+    identifier (a route name). Instead of directly passing the screen widget to the 
+    Navigator.push() function, you use a predefined string that represents the route. 
+    The framework will then map that name to a specific screen in your app.
+
+
+Defining Routes: You define your routes in a MaterialApp or CupertinoApp widget using the routes property, 
+where you map route names to specific screen widgets.
+
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => HomeScreen(),
+      '/details': (context) => DetailsScreen(),
+    },
+  ));
+}
+
+Navigating with Named Routes: To navigate to a screen, 
+you use the Navigator.pushNamed() method with the name of the route.
+
+Navigator.pushNamed(context, '/details');
+---------------------------------------------------------------------------
+
+Advantages of Named Routes over Direct Route Navigation
+
+1. Better Organization and Maintenance:
+Named routes make it easier to organize and manage your app’s navigation structure. Instead of using MaterialPageRoute every time, you define all your routes centrally (in the routes table), which leads to a cleaner and more maintainable codebase.
+For large applications, managing navigation through a list of strings (named routes) is easier than managing multiple MaterialPageRoute instances in different places of your app.
+
+
+2.Decoupling Navigation Logic:
+Named routes decouple navigation from the UI code. You don’t need to instantiate the screen directly with a widget in each navigation call. Instead, you only refer to the route name, which leads to more abstracted and reusable code.
+You can define all the screen transitions in a centralized place (like the MaterialApp routes table), making the code more modular and easier to scale.
+
+
+3. Consistency:
+Using named routes ensures consistent navigation behavior across your app. Once you define a route name, you use that name consistently everywhere, making it less likely to make errors (like spelling mistakes in route names).
+
+
+4. Simplifies Navigation Across Multiple Screens:
+In apps with multiple screens, having named routes allows you to navigate between them easily without worrying about managing individual screen references or context objects across the app. Just use the route name, and the framework handles the rest.
+
+
+5.Easier for Deep Linking:
+Named routes make it easier to implement deep linking or dynamic URL handling (especially with Navigator 2.0). If your app is linked to specific screens via URLs (for example, on the web), you can map these URLs directly to named routes.
+
+
+6.Stateful Navigation:
+Named routes allow for better management of screen state. Since routes are managed centrally, Flutter can handle preserving state and other features (like route guards or transitions) without needing extra code to manage state across all screens.
+
+
+7.Refactoring Made Easier:
+If you need to refactor your app and change the screen widget associated with a route, you only need to update it in one place (the routes table). This centralization reduces the risk of missing updates in multiple places in the code.
+
+
+8.Automatic Back Navigation:
+When using named routes, Flutter automatically handles the back stack for you. For example, pressing the back button will pop the current route off the stack and return to the previous screen, without requiring you to manually manage the state or navigation history.
