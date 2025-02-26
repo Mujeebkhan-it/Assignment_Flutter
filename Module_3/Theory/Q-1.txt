@@ -1,0 +1,109 @@
+Q-1. Explain the difference between Stateless and Stateful widgets with examples.
+
+    In Flutter, widgets are the fundamental building blocks of the UI, 
+    and they can be categorized into two main types based on how they manage their state:
+
+
+1. Stateless Widgets
+--------------------
+
+A StatelessWidget is a widget that does not have any mutable state. Once the widget is built, it doesn't change unless the parent widget explicitly requests a rebuild. 
+These widgets are immutable and static in nature, meaning their properties or values cannot change over time.
+
+import 'package:flutter/material.dart';
+
+class MyStatelessWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Stateless Widget Example")),
+      body: Center(
+        child: Text("This is a stateless widget!"),
+      ),
+    );
+  }
+}
+
+ - The MyStatelessWidget does not have any internal state that changes.
+ - It builds the UI only once based on the input provided to it, and it will only rebuild if its parent widget requests it.
+ - The UI remains the same until the parent widget triggers a change.
+
+
+=================================================================================================================
+
+
+2. Stateful Widgets
+--------------------
+
+A StatefulWidget is a widget that has mutable state. This means it can change over time, 
+and when the state changes, the widget rebuilds itself. Stateful widgets consist of two parts:
+
+The StatefulWidget itself, which is immutable.
+The State class, which holds the mutable state and can update the UI whenever necessary.
+
+import 'package:flutter/material.dart';
+
+class MyStatefulWidget extends StatefulWidget {
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Stateful Widget Example")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("You have pressed the button this many times:"),
+            Text("$_counter", style: Theme.of(context).textTheme.headline4),
+            ElevatedButton(
+              onPressed: _incrementCounter,
+              child: Text("Increment"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+ - MyStatefulWidget is the stateful widget itself, which is immutable.
+ - _MyStatefulWidgetState holds the mutable state (_counter in this case) and contains the logic for modifying it.
+ - When the _counter value changes (via _incrementCounter()), setState() is called, which triggers the UI to rebuild with the new value.
+ - This allows the widget to maintain and update its state over time.
+
+
+Feature	                StatelessWidget	                                StatefulWidget
+---------------------------------------------------------------------------------------------------------------------------------------
+
+State	                Does not have mutable state.	                Has mutable state.
+
+Rebuild Trigger	        Rebuilds when parent widget changes.	        Rebuilds when setState() is called.
+
+Performance 	        More performant as it does                      Requires more resources as 
+                        not rebuild unless required.	                it rebuilds on state changes.
+
+Example	                Text, Icon, Container widgets                   Buttons, forms, sliders 
+                                                                        (with user interaction). 
+                                                                         
+==============================================================================================================
+
+When to use:
+
+    StatelessWidget: Use when your widget does not depend on any dynamic state or data 
+                    that changes during its lifetime (e.g., static UI elements).
+    
+    StatefulWidget: Use when the widget needs to maintain and modify 
+                    its state (e.g., forms, counters, animations).
