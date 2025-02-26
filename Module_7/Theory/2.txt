@@ -1,0 +1,49 @@
+2. Describe how JSON data is parsed and used in Flutter.
+
+
+Create a Model Class: Define a Dart class to represent the data structure :-
+
+class User {
+  int id;
+  String name;
+  String email;
+
+  User({required this.id, required this.name, required this.email});
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      name: json['name'],
+      email: json['email'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+    };
+  }
+}
+
+
+Parsing JSON String: Use jsonDecode() to parse the JSON string into a Dart object :-
+
+String jsonResponse = '{"id": 1, "name": "John Doe", "email": "john.doe@example.com"}';
+Map<String, dynamic> userMap = jsonDecode(jsonResponse);
+User user = User.fromJson(userMap);
+
+
+
+
+Handling Lists: When parsing an array of JSON objects:-
+
+String jsonResponse = '[{"id": 1, "name": "John Doe", "email": "john.doe@example.com"}]';
+List<dynamic> userList = jsonDecode(jsonResponse);
+List<User> users = userList.map((userJson) => User.fromJson(userJson)).toList();
+
+
+Sending JSON Data: To send data back, use jsonEncode():-
+
+String jsonString = jsonEncode(user.toJson());

@@ -1,0 +1,16 @@
+Q - 1. Explain what a RESTful API is and its importance in mobile applications.
+
+    A RESTful API is a set of guidelines for building web services that allow mobile apps to communicate with 
+servers over HTTP. It uses standard HTTP methods like GET (retrieve data), POST (create data), 
+PUT (update data), and DELETE (remove data).
+
+Importance in Mobile Apps:
+--------------------------
+
+Data Exchange:         Enables mobile apps to retrieve and send data to remote servers.
+
+Backend Communication: Helps mobile apps interact with databases, cloud services, 
+                       and third-party services.
+
+Platform Independence: Allows apps on different platforms (iOS, Android) to communicate with the 
+                       same server using standard protocols.
