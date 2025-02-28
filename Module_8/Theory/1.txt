@@ -1,0 +1,11 @@
+Q - 1. Explain the difference between local storage options (shared_preferences, SQLite).
+
+    SharedPreferences is for simple key-value pair storage (like settings, flags, and small user preferences). 
+It’s best for small, unstructured data that doesn't require complex queries.
+
+    SQLite is a full relational database used to store structured data (with tables, rows, columns). 
+It supports complex queries, relationships, and is suited for larger, more complex data.
+
+When to use:
+    Use SharedPreferences for small app settings and preferences.
+    Use SQLite for storing structured data that requires querying, updating, or relationships between data.

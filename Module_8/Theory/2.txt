@@ -1,0 +1,40 @@
+Q - 2. Describe CRUD operations and how they are implemented in SQLite.
+
+1. Create (Insert Data)
+The Create operation adds new records to a database.
+
+SQL Command: INSERT INTO
+Description: This operation inserts a new row into a table.
+
+INSERT INTO tasks (title, isCompleted) VALUES ('Finish homework', 0);
+
+
+2. Read (Retrieve Data)
+The Read operation is used to fetch data from the database.
+
+SQL Command: SELECT
+Description: This operation retrieves data from one or more tables based on conditions.
+
+SELECT * FROM tasks;
+
+
+3. Update (Modify Data)
+The Update operation modifies existing records in the database.
+
+SQL Command: UPDATE
+Description: This operation updates one or more rows based on a condition.3. Update (Modify Data)
+The Update operation modifies existing records in the database.
+
+Description: This operation updates one or more rows based on a condition.
+
+UPDATE tasks SET title = 'Complete homework', isCompleted = 1 WHERE id = 1;
+
+
+
+4. Delete (Remove Data)
+The Delete operation removes records from the database.
+
+SQL Command: DELETE
+Description: This operation deletes one or more rows from a table based on a condition.
+
+DELETE FROM tasks WHERE id = 1;

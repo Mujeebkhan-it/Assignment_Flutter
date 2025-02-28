@@ -1,0 +1,18 @@
+Q - 3. Explain the advantages and use cases for shared_preferences.
+
+Advantages of shared_preferences:
+---------------------------------
+
+Simplicity: Easy to use with key-value pairs (no complex setup or schema needed).
+Lightweight: Ideal for small data like settings and preferences.
+Persistence: Data is saved across app restarts and device reboots.
+Cross-Platform: Works on both Android and iOS.
+No Configuration: No need for database schemas or queries.
+Asynchronous: Operations are non-blocking and fast.
+
+Use Cases for shared_preferences:
+---------------------------------
+
+App Settings: Save preferences like theme (light/dark mode), language selection, or notification settings.
+User Authentication: Store login tokens or session info.
+Flags and States: Save flags to track user actions (e.g., first-time user).
